@@ -1,6 +1,6 @@
 # NOTA
 
-Esse repositório consiste somente na versão traduzida para o português brasileiro do projeto Bloch Sphere Visualization.
+Esse repositório consiste somente em uma tradução para o português brasileiro do projeto Bloch Sphere Visualization.
 
 O projeto original encontra-se em: https://bloch.kherb.io
 --- 
