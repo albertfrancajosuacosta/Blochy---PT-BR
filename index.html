@@ -1,7 +1,7 @@
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="pt-BR">
     <head>
-      <title>Bloch sphere visualizer</title>
+      <title>Visualizador da esfera de Bloch: Explicação<</title>
 
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,7 +16,7 @@
             
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <meta name="description" content="Simulate the evolution of a qubit or spin on the Bloch sphere. This tool is ideal to understand quantum operations and to generate plots for presentations or publications.">
+      <meta name="description" content="Simule a evolução de um qubit ou spin na esfera de Bloch. Esta ferramenta é ideal para compreender operações quânticas e gerar gráficos para apresentações ou publicações.">
 	  
 	  <link rel="canonical" href="https://bloch.kherb.io/" />
 
@@ -34,10 +34,10 @@
         <div class="row lighten-5 grey">
           <nav>
             <div class="nav-wrapper indigo">
-              <img src="logo_v1.svg" alt="Bloch sphere tool" style="height: 3.5em; margin:0.5em"/> <a href="#" class="brand-logo" style="margin-left:.4em;"><span style="height: 1.8em; margin-bottom: .1em; display:inline-block">Bloch sphere simulator</span></a>
+              <img src="logo_v1.svg" alt="Bloch sphere tool" style="height: 3.5em; margin:0.5em"/> <a href="#" class="brand-logo" style="margin-left:.4em;"><span style="height: 1.8em; margin-bottom: .1em; display:inline-block">Simulador da Esfersa de Bloch</span></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li class="active"><a href="index.html">Tool</a></li>
-              <li><a href="explain.html">Explanation</a></li>
+              <li class="active"><a href="index.html">Ferramenta</a></li>
+              <li><a href="explain.html">Explicação</a></li>
               <li ><a href="https://github.com/kherb27/Blochy" target="_blank">GitHub &#8599;</a></li>
             </ul>
           </div>
@@ -51,7 +51,7 @@
 
             <div class="col s6">
 
-                <div id='myDiv' class='card' style='padding-bottom: 100%;'><noscript>Javascript necessary</noscript></div>
+                <div id='myDiv' class='card' style='padding-bottom: 100%;'><noscript>Javascript necessário</noscript></div>
                 <a class="waves-effect waves-light btn-small" onclick="export_png()" style="margin-bottom: 1em;">Download</a>
                 
                 
@@ -60,12 +60,12 @@
 
                 <ul class="collapsible expandable">
                     <li class="active">
-                      <div class="collapsible-header"><i class="material-icons">rotate_right</i>Rotations around default axes</div>
+                      <div class="collapsible-header"><i class="material-icons">rotate_right</i>Rotações em torno dos eixos padrão</div>
                       <div class="collapsible-body">
                         <table>
                           <tr>
                             <td style="min-width:4em;">
-                        x axis
+                        eixo x
                       </td>
                       <td>
                         <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('x',math.PI/2);">+90°</a>
@@ -80,7 +80,7 @@
                       </td>
                           </tr>
                           <tr><td style="min-width:4em;">
-                            y axis</td><td>
+                            eixo y</td><td>
                         <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('y',math.PI/2);">+90°</a>
                         <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('y',-math.PI/2);">-90°</a>
                         <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('y',math.PI);">+180°</a>
@@ -93,7 +93,7 @@
                       </td>
                     </tr>
                       <tr><td style="min-width:4em;">
-                        z axis</td><td>
+                        eixo z</td><td>
                         <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('z',math.PI/2);">+90°</a>
                         <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('z',-math.PI/2);">-90°</a>
                         <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('z',math.PI);">+180°</a>
@@ -109,7 +109,7 @@
                     </div>
                     </li>
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">rotate_right</i>Rotations around custom axis</div>
+                      <div class="collapsible-header"><i class="material-icons">rotate_right</i>Rotações em torno de um eixo personalizado</div>
                       <div class="collapsible-body">
                         <!--<label>
                         <input type="checkbox" />
@@ -117,25 +117,25 @@
                       </label> -->
                       <table>
                         <tr>
-                          <td>Polar angle</td><td><input id="custom_axis_polar" type="number" style="width:4em;margin-left:0.5em;" value="90">°</td>
+                          <td>Ângulo polar</td><td><input id="custom_axis_polar" type="number" style="width:4em;margin-left:0.5em;" value="90">°</td>
                         </tr>
                         <tr>
-                          <td>Azimuthal angle</td><td><input id="custom_axis_azimuth" type="number" style="width:4em;margin-left:0.5em;" value="0">°</td>
+                          <td>Ângulo azimutal</td><td><input id="custom_axis_azimuth" type="number" style="width:4em;margin-left:0.5em;" value="0">°</td>
                         </tr>
                         <tr>
-                          <td>Rotation angle</td><td><input id="custom_axis_rot_angle" type="number" style="width:4em;margin-left:0.5em;" value="90" step="1">°</td>
+                          <td>Ângulo de rotação</td><td><input id="custom_axis_rot_angle" type="number" style="width:4em;margin-left:0.5em;" value="90" step="1">°</td>
                         </tr>
                       </table><br/>
-                      <a class="waves-effect waves-light btn-small blue-grey" onclick="custom_rotate_state();">Apply rotation</a>
+                      <a class="waves-effect waves-light btn-small blue-grey" onclick="custom_rotate_state();">Aplicar rotação</a>
                       </div>
                     </li>
 
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">clear</i>Quantum gates</div>
+                      <div class="collapsible-header"><i class="material-icons">clear</i>Portas quânticas</div>
                       <div class="collapsible-body">
                       <table>
                         <tr>
-                          <td>Pauli gates</td>
+                          <td>Portas de Pauli</td>
                           <td>
                             <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('x',math.PI);">X</a>
                             <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('y',math.PI);">Y</a>
@@ -147,7 +147,7 @@
                           <td> <a class="waves-effect waves-light btn-small blue-grey" onclick="hadamard();">H</a>
                           </tr>
                         <tr>
-                          <td>Phase</td>
+                          <td>Fase</td>
                           <td> <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('z',math.PI/2);">S</a>
                             <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('z',-math.PI/2);">S†</a>
                             <a class="waves-effect waves-light btn-small blue-grey" onclick="rotate_state('z',math.PI/4);">T</a>
@@ -159,46 +159,46 @@
 
                     </li>
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">rss_feed</i>Pulses</div>
+                      <div class="collapsible-header"><i class="material-icons">rss_feed</i>Pulsos</div>
                       <div class="collapsible-body">
                          <table>
                           <tr>
-                            <td>Detuning</td><td><input id="detuning" type="number" style="width:4em;margin-left:0.5em;" value="0" step="0.01" onchange="rabi_plot();"></td>
-                            <td>Phase</td><td><input id="phase" type="number" style="width:4em;margin-left:0.5em;" value="0" step="1" max="360" onchange="rabi_plot();">°</td>
+                            <td>Dessintonia</td><td><input id="detuning" type="number" style="width:4em;margin-left:0.5em;" value="0" step="0.01" onchange="rabi_plot();"></td>
+                            <td>Fase</td><td><input id="phase" type="number" style="width:4em;margin-left:0.5em;" value="0" step="1" max="360" onchange="rabi_plot();">°</td>
                           </tr>
                           <tr>
                             <td>Amplitude</td><td><input id="amplitude" type="number" style="width:4em;margin-left:0.5em;" value="1" step="0.01" onchange="rabi_plot();"></td>
-                            <td>Pulse length</td><td><input id="pulselength" type="number" style="width:4em;margin-left:0.5em;" value="0.5" step="0.01" onchange="rabi_plot();"></td>
+                            <td>Tamanho do Pulso</td><td><input id="pulselength" type="number" style="width:4em;margin-left:0.5em;" value="0.5" step="0.01" onchange="rabi_plot();"></td>
                           </tr>
                         </table>
                  <div>
-                  <label>Transition probability plot</label>
+                  <label>Gráfico de probabilidade de transição</label>
                         <div id="rabi_div" style="width:100%;height:10em;"></div>
                       </div>
                       <div style="margin-top:4em;">
-                      <a class="waves-effect waves-light btn-small blue-grey" onclick="pulse_apply('x');">Apply pulse along x</a>
-                      <a class="waves-effect waves-light btn-small blue-grey" onclick="pulse_apply('y');">Apply pulse along y</a>
+                      <a class="waves-effect waves-light btn-small blue-grey" onclick="pulse_apply('x');">Aplicar pulso ao longo de x</a>
+                      <a class="waves-effect waves-light btn-small blue-grey" onclick="pulse_apply('y');">Aplicar pulso ao longo de y</a>
                     </div>
                   </div>
                     </li>
                     <li> 
-                      <div class="collapsible-header"><i class="material-icons">settings_input_component</i>Settings</div>
+                      <div class="collapsible-header"><i class="material-icons">settings_input_component</i>Configurações</div>
                       <div class="collapsible-body">
                         <table>
                           <tr><td>
-                        Spin color
+                        Cor do Spin
                         </td><td><input type="color" id="spin_color" value="#1a237e" onchange="update_state_plot();"></td>
-                      <td>Histrory trace color</td><td><input type="color" id="phosphor_color" value="#1a237e" /></td>
+                      <td>Cor do histórico</td><td><input type="color" id="phosphor_color" value="#1a237e" /></td>
                       </tr>
                       <tr>
-                        <td>Top state text</td><td><input type="text" id="north_text" value="0" style="width:5em" onchange="BLOCHSPHERE =  gen_bloch_sphere();update_state_plot(full_update=true)"></td>
-                        <td>Bottom state text</td><td><input type="text" id="south_text"  value="1" style="width:5em" onchange="BLOCHSPHERE =  gen_bloch_sphere();update_state_plot(full_update=true)"></td>
+                        <td>Texto do estado superior/td><td><input type="text" id="north_text" value="0" style="width:5em" onchange="BLOCHSPHERE =  gen_bloch_sphere();update_state_plot(full_update=true)"></td>
+                        <td>Texto do estado inferior</td><td><input type="text" id="south_text"  value="1" style="width:5em" onchange="BLOCHSPHERE =  gen_bloch_sphere();update_state_plot(full_update=true)"></td>
                       </tr>
-                      <tr><td>History trace length</td><td><input type="number" id="phosphor_length"  value="10" min="0" step="1" style="width:5em"></td>
+                      <tr><td>Tamanho do histórico</td><td><input type="number" id="phosphor_length"  value="10" min="0" step="1" style="width:5em"></td>
                       <td></td><td></td>
                       </tr>
                       <tr>
-                        <td>Export size</td>
+                        <td>Tamanho da exportação</td>
                         <td>
                           <input id="export_size" type="number" value="800" style="width:5em"> px
                       </td>
@@ -238,4 +238,5 @@
     
     </body>
   </html>
+
 
