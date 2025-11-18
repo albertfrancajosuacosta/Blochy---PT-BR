@@ -1,7 +1,14 @@
-# Bloch sphere visualization
+# NOTA
 
-This small Javascript tool aims at providing a simple-to-use interface for visualizing quantum state evolutions on the Bloch sphere. The original intend was to replace the tyipical pens that one holds in the hand to follow a trajectory with an online tool that is available on every computer. Furthermore, it proved helpful in the teaching context when introducing students to spin dynamics. 
+Esse repositório consiste somente na versão traduzida para o português brasileiro do projeto Bloch Sphere Visualization.
 
-This tool is hosted at: https://bloch.kherb.io
+O projeto original encontra-se em: https://bloch.kherb.io
+--- 
 
-Issues, wishes and pull-requests from the community are very welcome!
+# Visualização da Esfera de Bloch
+
+Esta é uma pequena ferramenta em Javascript que objetiva prover uma interface simples ao usuário para visualizar evoluções do estado quântico dentro da Esfera de Bloch. A intenção original era substituir as típicas canetas que se seguram na mão para seguir uma trajetória por uma ferramenta _online_ disponível em qualquer computador. Além disso, mostrou-se útil no contexto de ensino ao introduzir os estudantes à dinâmica de _spin_. 
+
+A ferramenta está hospedada em: https://bloch.kherb.io
+
+Questões, sugestões e pull requests da comunidade são muito bem-vindos!
