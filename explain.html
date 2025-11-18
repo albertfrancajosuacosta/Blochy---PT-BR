@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-    <title>Bloch sphere visualizer: Explanation</title>
+    <title>Visualizador da esfera de Bloch: Explicação</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -15,61 +15,83 @@
           
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Mthematical and physical concept of the Bloch sphere.">
+    <meta name="description" content="Conceito matemático e físico da esfera de Bloch.">
 	
 	<link rel="canonical" href="https://bloch.kherb.io/explain.html" />
-
-
 </head>
 
   <body class="indigo lighten-5">
     <main>
     <div class="container" style="min-width:1200px">
     <script type="text/javascript">
-          $(document).ready(function(){
-      $('.collapsible').collapsible();
-    });
+      $(document).ready(function(){
+        $('.collapsible').collapsible();
+      });
     </script>
      
       <div class="row lighten-5 grey">
         <nav>
           <div class="nav-wrapper indigo">
-            <img src="logo_v1.svg" alt="Bloch sphere tool" style="height: 3.5em; margin:0.5em"/> <a href="#" class="brand-logo" style="margin-left:.4em;"><span style="height: 1.8em; margin-bottom: .1em; display:inline-block">Bloch sphere simulator</span></a>
+            <img src="logo_v1.svg" alt="Ferramenta da esfera de Bloch" style="height: 3.5em; margin:0.5em"/> 
+            <a href="#" class="brand-logo" style="margin-left:.4em;">
+              <span style="height: 1.8em; margin-bottom: .1em; display:inline-block">Simulador da esfera de Bloch</span>
+            </a>
             
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="index.html">Tool</a></li>
-            <li class="active"><a href="explain.html">Explanation</a></li>
-            <li ><a href="https://github.com/kherb27/Blochy" target="_blank">GitHub &#8599;</a></li>
-          </ul>
-        </div>
-
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="index.html">Ferramenta</a></li>
+              <li class="active"><a href="explain.html">Explicação</a></li>
+              <li><a href="https://github.com/kherb27/Blochy" target="_blank">GitHub &#8599;</a></li>
+            </ul>
+          </div>
         </nav>
-          <div class="col s12 indigo"></div>
+
+        <div class="col s12 indigo"></div>
+
         <div class="col s12" style="text-align: justify;">
-        <h5>Introduction</h5>
+        <h5>Introdução</h5>
+
         <p>
-        The Bloch sphere is a powerful geometric representation frequently employed in quantum mechanics to visualize and analyze quantum states of a two-level quantum system, often referred to as a qubit. 
-        The Bloch sphere is named after the Swiss physicist Felix Bloch, the father of Nuclear Magnetic Resonance (NMR), who introduced it as an intuitive way to depict the quantum state of the $SU(2)$ Hilbert space. Typically, the qubit state is described for a pure system by a 2-dimensional, complex valued vector of length 1.
+          A esfera de Bloch é uma representação geométrica poderosa, amplamente utilizada em mecânica quântica para visualizar e analisar estados quânticos de um sistema de dois níveis, frequentemente chamado de qubit.
+          A esfera de Bloch recebe seu nome do físico suíço Felix Bloch, pai da Ressonância Magnética Nuclear (NMR), que a introduziu como uma forma intuitiva de representar o estado quântico no espaço de Hilbert $SU(2)$. Tipicamente, o estado de um qubit é descrito, para um sistema puro, por um vetor bidimensional de valores complexos e comprimento igual a 1.
         </p>
+
         <p>
-        The Bloch sphere provides a 3D representation of this quantum state space, where the north and south poles represent the basis states $|0\rangle$ and $|1\rangle$, while the equator embodies the superposition of these states. Unitary transformations, which encompass quantum gates and operations, are elegantly visualized on the Bloch sphere as rotations. A rotation about any axis corresponds to a specific unitary transformation applied to the quantum state. This is because of the isomorphic relationship between the $SU(2)$ group and the group of rotations in 3D space, $SO(3)$. This makes the Bloch sphere a valuable tool for designing and comprehending quantum algorithms and quantum gates.
-      </p>
-      <p>
-        This online tool aims at providing an easily and readily available tool to visualize quantum states and operations on the Bloch sphere. It is ideal for presentations, publications, and teaching. The tool is based on the open-source JavaScript library plotly.js.
+          A esfera de Bloch fornece uma representação tridimensional desse espaço de estados quânticos, onde os polos norte e sul representam os estados base $|0\rangle$ e $|1\rangle$, enquanto o equador representa superposições desses estados. Transformações unitárias, que incluem portas e operações quânticas, são elegantemente visualizadas na esfera de Bloch como rotações. Uma rotação em torno de qualquer eixo corresponde a uma transformação unitária específica aplicada ao estado quântico. Isso ocorre devido à relação isomórfica entre o grupo $SU(2)$ e o grupo de rotações no espaço 3D, $SO(3)$. Essa correspondência torna a esfera de Bloch uma ferramenta valiosa para projetar e compreender algoritmos e portas quânticas.
+        </p>
+
+        <p>
+          Esta ferramenta online tem como objetivo fornecer uma forma simples e acessível de visualizar estados quânticos e operações na esfera de Bloch. Ela é ideal para apresentações, publicações e fins educacionais. A ferramenta é baseada na biblioteca JavaScript de código aberto plotly.js.
         </p>
         </div>
-        <div class="col s12">
-        <h5>Mathematical background</h5>
-        Using the two basis states
-        $$|0\rangle =\begin{pmatrix}1\\0\end{pmatrix} \qquad \mathrm{and} \qquad |1\rangle=\begin{pmatrix}0\\1\end{pmatrix}, 
-        $$
-        any pure state $|\psi\rangle$ of a qubit can be written (up to an irrelevant global phase) as a linear combination
-        $$ |\psi\rangle = \cos\left(\frac{\theta}{2}\right) |0\rangle +  \sin\left(\frac{\theta}{2}\right) e^{\mathrm{i} \varphi} |1\rangle = \begin{pmatrix}\alpha \\ \beta\end{pmatrix}. $$
-        The state can be represented as a vector on the Bloch sphere, where the angles $\theta$ and $\varphi$ are the polar and azimuthal angles, respectively. The Bloch vector representation is given by
-        $$ \vec{r} = \begin{pmatrix} \sin\theta \cos\varphi \\ \sin\theta \sin\varphi \\ \cos\theta \end{pmatrix} = \begin{pmatrix}u \\ v \\ w\end{pmatrix}.$$
-        The Bloch vector is normalized to length 1, <i>i.e.</i> $|\vec{r}| = 1$.
 
-        To compute this representation numerically from a given state $|\psi\rangle$, we use the mapping
+        <div class="col s12">
+        <h5>Fundamentos matemáticos</h5>
+
+        Usando os dois estados base:
+        $$
+        |0\rangle =\begin{pmatrix}1\\0\end{pmatrix} \qquad \mathrm{e} \qquad 
+        |1\rangle=\begin{pmatrix}0\\1\end{pmatrix},
+        $$
+        qualquer estado puro $|\psi\rangle$ de um qubit pode ser escrito (até uma fase global irrelevante) como uma combinação linear:
+        $$
+        |\psi\rangle = \cos\left(\frac{\theta}{2}\right) |0\rangle + 
+        \sin\left(\frac{\theta}{2}\right) e^{\mathrm{i} \varphi} |1\rangle = 
+        \begin{pmatrix}\alpha \\ \beta\end{pmatrix}.
+        $$
+
+        O estado pode ser representado como um vetor na esfera de Bloch, onde os ângulos $\theta$ e $\varphi$ correspondem, respectivamente, aos ângulos polar e azimutal. A representação do vetor de Bloch é dada por:
+        $$
+        \vec{r} = \begin{pmatrix} 
+        \sin\theta \cos\varphi \\ 
+        \sin\theta \sin\varphi \\ 
+        \cos\theta 
+        \end{pmatrix} = 
+        \begin{pmatrix}u \\ v \\ w\end{pmatrix}.
+        $$
+
+        O vetor de Bloch é normalizado com módulo 1, ou seja, $|\vec{r}| = 1$.
+
+        Para computar essa representação numericamente a partir de um estado $|\psi\rangle$, usamos o mapeamento:
         $$
         \begin{align*}
         u &= -2\,\mathrm{Re}(\alpha \beta^*) \\
@@ -78,60 +100,82 @@
         \end{align*}
         $$
 
-        Rotations around the axis $i$ are performed by applying the corresponding unitary operator to the current state $|\psi\rangle$,
-        $$ |\psi'\rangle = R_i(\phi) |\psi\rangle. $$
-        The visualizer tool stores the state $|\psi\rangle$, performs the quantum actions on it and uses the above mapping to compute the Bloch vector representation after every manipulation. The Bloch vector is then used to plot the state on the Bloch sphere. 
-        
-        For the three Cartesian axes $i \in {x,y,z}$, the rotation operators are given by
+        Rotações em torno do eixo $i$ são realizadas aplicando o operador unitário correspondente ao estado atual $|\psi\rangle$:
+        $$
+        |\psi'\rangle = R_i(\phi) |\psi\rangle.
+        $$
+        A ferramenta armazena o estado $|\psi\rangle$, realiza as ações quânticas sobre ele e usa o mapeamento acima para calcular a representação do vetor de Bloch após cada manipulação. O vetor é então utilizado para plotar o estado na esfera de Bloch.
+
+        Para os três eixos cartesianos $i \in \{x, y, z\}$, os operadores de rotação são:
         $$
         \begin{align*}
-        R_x(\phi) &= \begin{pmatrix} \cos\left(\frac{\phi}{2}\right) & -\mathrm{i} \sin\left(\frac{\phi}{2}\right) \\ -\mathrm{i} \sin\left(\frac{\phi}{2}\right) & \cos\left(\frac{\phi}{2}\right) \end{pmatrix} \\
-        R_y(\phi) &= \begin{pmatrix} \cos\left(\frac{\phi}{2}\right) & - \sin\left(\frac{\phi}{2}\right) \\ \sin\left(\frac{\phi}{2}\right) & \cos\left(\frac{\phi}{2}\right) \end{pmatrix} \\
-        R_z(\phi) &= \begin{pmatrix} e^{-\mathrm{i}\frac{\phi}{2}} & 0 \\ 0 & e^{\mathrm{i}\frac{\phi}{2}} \end{pmatrix},
+        R_x(\phi) &= 
+        \begin{pmatrix} 
+        \cos\left(\frac{\phi}{2}\right) & -\mathrm{i} \sin\left(\frac{\phi}{2}\right) \\ 
+        -\mathrm{i} \sin\left(\frac{\phi}{2}\right) & \cos\left(\frac{\phi}{2}\right) 
+        \end{pmatrix} \\
+        R_y(\phi) &= 
+        \begin{pmatrix} 
+        \cos\left(\frac{\phi}{2}\right) & - \sin\left(\frac{\phi}{2}\right) \\ 
+        \sin\left(\frac{\phi}{2}\right) & \cos\left(\frac{\phi}{2}\right) 
+        \end{pmatrix} \\
+        R_z(\phi) &= 
+        \begin{pmatrix} 
+        e^{-\mathrm{i}\frac{\phi}{2}} & 0 \\ 
+        0 & e^{\mathrm{i}\frac{\phi}{2}} 
+        \end{pmatrix}.
         \end{align*}
         $$
-        where we use the matrix exponential.
 
-        For an arbitrary rotation axis $\vec{n} = (n_x,n_y,n_z)$, the rotation operator is given by
-        $$ R_{\vec{n}}(\phi) = \exp\left(-\mathrm{i} \frac{\phi}{2} \vec{n} \cdot \vec{\sigma}\right), $$
-        where $\vec{\sigma} = (\sigma_x,\sigma_y,\sigma_z)$ are the Pauli matrices. The rotation operator can be written as
-        $$ R_{\vec{n}}(\phi) = \cos\left(\frac{\phi}{2}\right) \mathbb{1} - \mathrm{i} \sin\left(\frac{\phi}{2}\right) \vec{n} \cdot \vec{\sigma}. $$ 
+        Para um eixo arbitrário $\vec{n} = (n_x,n_y,n_z)$, o operador de rotação é:
+        $$
+        R_{\vec{n}}(\phi) = \exp\left(-\mathrm{i} \frac{\phi}{2} \vec{n} \cdot \vec{\sigma}\right),
+        $$
+        onde $\vec{\sigma} = (\sigma_x,\sigma_y,\sigma_z)$ são as matrizes de Pauli. Esse operador pode ser escrito como:
+        $$
+        R_{\vec{n}}(\phi) = 
+        \cos\left(\frac{\phi}{2}\right) \mathbb{1} - 
+        \mathrm{i} \sin\left(\frac{\phi}{2}\right) \vec{n} \cdot \vec{\sigma}.
+        $$
 
-        This convention results in a right-handed coordinate system, where the rotation around the $z$-axis is a clockwise rotation when looking along the positive $z$-axis. The rotation around the $x$-axis is a clockwise rotation when looking along the positive $x$-axis. The rotation around the $y$-axis is a clockwise rotation when looking along the positive $y$-axis.
+        Esta convenção resulta em um sistema de coordenadas destrógiro (right-handed), no qual a rotação em torno do eixo $z$ é no sentido horário quando observada ao longo do eixo $z$ positivo; e o mesmo vale para os eixos $x$ e $y$.
 
+        <h5>Como usar esta ferramenta</h5>
 
-
-
-
-        <h5>How to use this tool</h5>
         <p>
-        The tab <i>Rotations around default axes</i>, allows to perform rotation operations around the three Cartesian axes. The rotation angle can be chosen by the user. The rotation is performed by applying the corresponding unitary operator to the current state $|\psi\rangle$, Most common rotation angles have separate buttons.
-      </p>
-<p>
-        The tab <i>Rotation around custom axis</i>, allows to perform a rotation operation around an axis that can be specified by the user entering a polar angle $\theta$ and an azimuthal angle $\varphi$. The rotation angle can be chosen by the user. The rotation is performed by applying the corresponding unitary operator to the current state $|\psi\rangle$. All units are in degrees.
-      </p>
-      <p>
-        The tab <i>Quantum gates</i>, allows to apply the most common quantum gates to the current state. They are defined as follows:
-        <ul style="margin-left:2em;list-style: circle;">
-        <li style="list-style: disc;">Pauli gates: $X = R_x(\pi)$ (NOT / bit flip), $Y = R_y(\pi)$, $Z = R_z(\pi)$ (phase flip)</li>
-        <li style="list-style: disc;">Hadamard gate: $H = R_x(\pi) R_y(\pi/2)$</li>
-        <li style="list-style: disc;">S gate: $S = R_z(\pi/2)$</li>
-        <li style="list-style: disc;">$\pi/8$ gate: $T = R_z(\pi/4)$</li>
-        </ul>
-      </p>
+          A aba <i>Rotações em torno dos eixos padrão</i> permite realizar rotações ao redor dos três eixos cartesianos. O ângulo de rotação pode ser escolhido pelo usuário. A rotação é realizada aplicando o operador unitário correspondente ao estado atual $|\psi\rangle$. Os ângulos mais usados possuem botões próprios.
+        </p>
 
-      <p>
-        The tab <i>Pulses</i> computes the action of am rf pulse in the rotating frame. All units are dimensionless. A pulse with the amplitude 1 and a duration of 1 corresponds to a $2\pi$ rotation. To apply pulses along different axes in the conventional sense, use the phase in degrees. The pulse is applied by multiplying the current state with the corresponding unitary operator. The buttons “apply pulse along x” and “apply pulse along y” apply a pulse with the given amplitude and duration along the $x$- and $y$-axis, respectively. Typically, in the physical implementation, the pulse is only applied along one axis and phase differences between pulses are realized in the rotating frame.
-      </p>
-        </div>
+        <p>
+          A aba <i>Rotação em eixo personalizado</i> permite realizar uma rotação em torno de um eixo especificado pelo usuário, informando um ângulo polar $\theta$ e um ângulo azimutal $\varphi$. O ângulo de rotação também pode ser escolhido pelo usuário. Todas as unidades estão em graus.
+        </p>
+
+        <p>
+          A aba <i>Portas quânticas</i> permite aplicar as portas quânticas mais comuns ao estado atual. Elas são definidas como:
+        </p>
+
+        <ul style="margin-left:2em;list-style: circle;">
+          <li style="list-style: disc;">Portas de Pauli: $X = R_x(\pi)$ (NOT / inversão de bit), $Y = R_y(\pi)$, $Z = R_z(\pi)$ (inversão de fase)</li>
+          <li style="list-style: disc;">Porta de Hadamard: $H = R_x(\pi) R_y(\pi/2)$</li>
+          <li style="list-style: disc;">Porta S: $S = R_z(\pi/2)$</li>
+          <li style="list-style: disc;">Porta $\pi/8$: $T = R_z(\pi/4)$</li>
+        </ul>
+
+        <p>
+          A aba <i>Pulsos</i> calcula a ação de um pulso de RF no referencial rotante. Todas as unidades são adimensionais. Um pulso com amplitude 1 e duração 1 corresponde a uma rotação de $2\pi$. Para aplicar pulsos ao longo de diferentes eixos no sentido convencional, utilize a fase (em graus). O pulso é aplicado multiplicando o estado atual pelo operador unitário correspondente. Os botões “aplicar pulso ao longo de x” e “aplicar pulso ao longo de y” aplicam um pulso com a amplitude e duração definidas ao longo dos eixos $x$ e $y$, respectivamente. Na implementação física, o pulso geralmente é aplicado apenas ao longo de um eixo e diferenças de fase entre pulsos são realizadas no referencial rotante.
+        </p>
+
         </div>
       </div>
-    </div></main>
-      <footer class="page-footer">
-        <div class="footer-copyright" style="width:100%; text-align: center;margin-left: auto;margin-right: auto; display: block;">
-           &copy; Konstantin Herb &mdash; ETH Zurich &mdash; 2023 &mdash; MIT license
-           </div>
-          </footer>
+    </div>
+    </main>
+
+    <footer class="page-footer">
+      <div class="footer-copyright" style="width:100%; text-align: center;margin-left: auto;margin-right: auto; display: block;">
+        &copy; Konstantin Herb — ETH Zurich — 2023 — MIT license
+      </div>
+    </footer>
+
     <!--JavaScript at end of body for optimized loading-->
       
     <!--Math-->
@@ -141,24 +185,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-              // customised options
-              // • auto-render specific keys, e.g.:
-              delimiters: [
-                  {left: '$$', right: '$$', display: true},
-                  {left: '$', right: '$', display: false},
-                  {left: '\\(', right: '\\)', display: false},
-                  {left: '\\[', right: '\\]', display: true}
-              ],
-              // • rendering keys, e.g.:
-              throwOnError : false
-            });
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
         });
+      });
     </script>
-    
 
   </body>
 </html>
+
 
